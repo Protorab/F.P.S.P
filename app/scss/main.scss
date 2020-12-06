@@ -3,7 +3,7 @@
 .wrapper {
   min-height: 100%;
   opacity: 0;
-  @include _transition(opacity, .8s, 0s);
+  @include _transition(opacity, .8s);
 
   &.__loaded {
     opacity: 1;
@@ -36,25 +36,26 @@
   background: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(10px);
   transform: translate(0, -100%);
-  @include _transition(transform, .8s, .8s);
+  @include _transition(transform, .8s);
 
 }
 
 .menu {
   width: 100%;
   display: flex;
-  padding: 10px 25px;
+  padding: 15px 25px;
 }
 
 .menu__link {
   margin-right: 20px;
+  font-weight: bold;
 
   &:last-child {
     margin-right: 0;
   }
 
   &.__active {
-    color: green;
+    color: $textDarkColor;
   }
 }
 
@@ -84,7 +85,7 @@ $btnBgHover: #9267D2;
   align-items: center;
   justify-content: center;
   border: 2px solid $textcolor;
-  @include _transition(all, .5s, 0);
+  @include _transition(all, .5s);
 
   // background: $btnBg;
   // color: #fff;
@@ -102,7 +103,7 @@ $btnBgHover: #9267D2;
 }
 
 .popup {
-  @include _transition(all, .1s, 0s);
+  @include _transition(all, .1s);
   position: fixed;
   width: 100%;
   height: 100%;
@@ -145,7 +146,7 @@ textarea {
   flex-direction: column;
   background: $mainColor;
   @include _borderRadius(5px);
-  @include _transition(all, .1s, 0);
+  @include _transition(all, .1s);
   -webkit-animation-duration: .5s;
   animation-duration: .5s;
   z-index: 2;
@@ -175,7 +176,7 @@ textarea {
     height: 25px;
     display: flex;
 
-    @include _transition(transform, .3s, 0);
+    @include _transition(transform, .3s);
 
     span {
       @include _borderRadius(5%);
@@ -230,7 +231,7 @@ textarea {
   position: absolute;
   right: 50px;
   top: 50%;
-  @include _transition(transform, .8s, .8s);
+  @include _transition(transform, .8s);
   transform: translate(100px, -50%);
   display: flex;
   flex-direction: column;
@@ -240,13 +241,15 @@ textarea {
     width: 15px;
     height: 15px;
     cursor: pointer;
-    background: rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, .5);
+
     margin: 10px 0;
-    @include _transition(background, .5s, 0);
-    @include _borderRadius(50%);
+    @include _transition(all, .5s);
 
     &-active {
-      background: #fff;
+      background: #c0cad6;
+      box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+
     }
   }
 }
@@ -268,7 +271,7 @@ textarea {
     width: 100%;
     background: $accentOpacity;
     cursor: pointer;
-    @include _transition(background, .3s, 0);
+    @include _transition(background, .3s);
 
     &:hover {
       background: $accent;
@@ -292,9 +295,11 @@ textarea {
 
   &-bg {
     background: rgba(255, 255, 255, 0.316);
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.316);
+    backdrop-filter: blur(10px);
     display: inline-block;
     margin-bottom: 30px;
-    padding: 15px;
+    padding: 25px;
   }
 }
 
@@ -307,13 +312,15 @@ textarea {
   position: absolute;
 }
 
-.screen__img {
+.screen__bg {
   width: 100%;
   height: 100%;
   left: 0;
   top: 0;
   overflow: hidden;
   position: absolute;
+
+
 
   img {
     width: 100%;
@@ -324,6 +331,16 @@ textarea {
     position: absolute;
     object-fit: cover;
   }
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(10px);
+  z-index: 1;
 }
 
 .screen__text {
@@ -347,5 +364,47 @@ textarea {
   canvas {
     z-index: -1;
     position: relative;
+  }
+}
+
+.link__wrap {
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+}
+
+.contact__icon {
+  @include _transition(all, .5s);
+  font-size: 25px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+
+  &-mobile {
+    display: none;
+
+    @media only screen and (max-width:1100px) {
+      display: flex;
+    }
+  }
+
+  &-desktop {
+    @media only screen and (max-width:1100px) {
+      display: none;
+    }
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, .8);
+    color: $textDarkColor;
   }
 }

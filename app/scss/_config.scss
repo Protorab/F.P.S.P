@@ -1,10 +1,40 @@
+// USER VARIABLES SECTION
+
+$accent: #6FA0BF; // Accent Color
+$accentOpacity:rgba(111, 160, 191, .5); // Accent Color Opacity 0.5
+$mainColor:#304D73; // Body Background Color
+$mainColorOpacity:rgba(48, 77, 115, .5); // Body Background Color Opacity 0.5
+$fontsize: 10px; // Body Font Size
+$textcolor: #f2f2f2; // Text Color
+$textDarkColor: #4b4b4b; // Text Dark  Color
+$lineheight: 1.65; // Document Line Height
+$userfont: Roboto,
+sans-serif; // User Font Family
+$systemfont: -apple-system,
+BlinkMacSystemFont,
+Arial,
+sans-serif; // System Font Family
+/* Color Theme Swatches in Hex */
+$color-theme_bg-1-hex: #304D73;
+$color-theme_bg-2-hex: #253C59;
+$color-theme_bg-3-hex: #1B2E40;
+$color-theme_bg-4-hex: #5681A6;
+$color-theme_bg-5-hex: #6FA0BF;
+
+/* Color Theme Swatches in RGBA */
+// $color-theme_bg-1-rgba: rgba(48, 77, 115, .5);
+// $color-theme_bg-2-rgba: rgba(37, 60, 89, .5);
+// $color-theme_bg-3-rgba: rgba(27, 46, 64, .5);
+// $color-theme_bg-4-rgba: rgba(86, 129, 166, .5);
+// $color-theme_bg-5-rgba: rgba(111, 160, 191, .5);
+
 //MIXINS
-@mixin _transition($element, $time, $delay:0) {
-	transition: $element ease-in-out $time $delay;
-	-webkit-transition: $element ease-in-out $time $delay;
-	-moz-transition: $element ease-in-out $time $delay;
-	-ms-transition: $element ease-in-out $time $delay;
-	-o-transition: $element ease-in-out $time $delay;
+@mixin _transition($element, $time) {
+	transition: $element ease-in-out $time;
+	-webkit-transition: $element ease-in-out $time;
+	-moz-transition: $element ease-in-out $time;
+	-ms-transition: $element ease-in-out $time;
+	-o-transition: $element ease-in-out $time;
 }
 
 @mixin _borderRadius($borderRadius) {
@@ -29,23 +59,16 @@
 	#{$property}: ($number_1/$number_2)*100%;
 }
 
+@mixin font($fname, $fstyle, $fweight, $furl) {
+	@font-face {
+		font-family: $fname;
+		font-style: $fstyle;
+		font-weight: $fweight;
+		src: local($fname), url($furl) format('woff2');
+		// font-display: swap // Uncomment to initially display system fonts
+	}
+}
 
-// USER VARIABLES SECTION
-
-$accent: #ff6d69; // Accent Color
-$accentOpacity: rgba(255, 110, 105, 0.5); // Accent Color Opacity 0.5
-$mainColor:#1e0521; // Body Background Color
-$mainColorOpacity:rgba(30, 5, 33, 0.5); // Body Background Color Opacity 0.5
-$fontsize: 10px; // Body Font Size
-$textcolor: #fecc50; // Text Color
-$textDarkColor: #4B2188; // Text Dark  Color
-$lineheight: 1.65; // Document Line Height
-$userfont: Roboto,
-sans-serif; // User Font Family
-$systemfont: -apple-system,
-BlinkMacSystemFont,
-Arial,
-sans-serif; // System Font Family
 
 // ZEROING SECTION
 * {
@@ -143,15 +166,6 @@ sans-serif; // System Font Family
 
 // FONTS LOAD SECTION
 
-@mixin font($fname, $fstyle, $fweight, $furl) {
-	@font-face {
-		font-family: $fname;
-		font-style: $fstyle;
-		font-weight: $fweight;
-		src: local($fname), url($furl) format('woff2');
-		// font-display: swap // Uncomment to initially display system fonts
-	}
-}
 
 @include font('Roboto', normal, 400, '../fonts/roboto-regular-webfont.woff2');
 @include font('Roboto', italic, 400, '../fonts/roboto-italic-webfont.woff2');
@@ -182,7 +196,7 @@ textarea {
 	}
 
 	&::-webkit-input-placeholder {
-		@include _transition(transform, .2s, 0s);
+		@include _transition(transform, .2s);
 
 		transform-origin: 100% 0;
 	}
@@ -193,17 +207,17 @@ textarea {
 	}
 
 	&:-ms-input-placeholder {
-		@include _transition(transform, .2s, 0s);
+		@include _transition(transform, .2s);
 		transform-origin: 100% 0;
 	}
 
 	&::-ms-input-placeholder {
-		@include _transition(transform, .2s, 0s);
+		@include _transition(transform, .2s);
 		transform-origin: 100% 0;
 	}
 
 	&::placeholder {
-		@include _transition(transform, .2s, 0s);
+		@include _transition(transform, .2s);
 		transform-origin: 100% 0;
 	}
 
@@ -473,7 +487,7 @@ a,
 li,
 .p,
 label {
-	font-size: 1.4rem;
+	font-size: 1.6rem;
 	line-height: 120%;
 
 	@media only screen and (max-width : 768px) {

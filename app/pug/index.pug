@@ -10,10 +10,25 @@ body
             h1.screen__title.screen__title-bg(
             data-swiper-parallax="50%",
             data-swiper-parallax-opacity="0"
-            ) Lorem ipsum dolor sit amet.
+            ) Hi, I'm Leonid, I am glad to welcome you to this resource. <br> Now I will briefly try to present and recommend myself.
+            iframe(
+              src="https://www.youtube.com/embed/KEkrWRHCDQU",
+              frameborder="0",
+              allow="accelerometer;autoplay;clipboard-write;encrypted-media; gyroscope; picture-in-picture",
+               allowfullscreen
+               )
+            .link__wrap
+              a.contact__icon(href="https://t.me/Lea_need") 
+                i.fab.fa-telegram-plane
+              a.contact__icon.contact__icon-desktop(href="viber://chat?number=+375259085861") 
+                i.fab.fa-viber
+              a.contact__icon.contact__icon-mobile(href="viber://add?number=375259085861")
+                i.fab.fa-viber
+              a.contact__icon(href="tel:+375259085861")
+                i.fas.fa-mobile-alt
             #particles-js
           .screen__body
-            .screen__img
+            .screen__bg
               img(
               src="img/bg.png",
               alt="Картинка",
@@ -39,9 +54,10 @@ body
             data-swiper-parallax="70%",
             data-swiper-parallax-opacity="0",
             data-swiper-parallax-duration="700"
-            ) Lorem ipsum
+            ) Skills
           .screen__body
-            .screen__img
+            .screen__bg
+              .overlay
               img(
                 src="img/img_2.jpg",
                 alt="Картинка", 
